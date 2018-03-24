@@ -2,11 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DEMO BCTE - Before Close Tab Event</title>
+    <title>DEMO BCTE - Before Close Tab Event 2</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <h1>Here will be demo-html</h1>
+<p>Возможности скрипта</p>
+<ul>
+    <li>Определяет положение курсора, реагирует, когда pageY меньше 0 (курсор в зоне с вкладками)</li>
+    <li>Устанавливает куки на выбранной странице</li>
+    <li>Проверяет наличие куки (при заходе и/или по таймеру)</li>
+    <li>Устанавливает время жизни куки</li>
+    <li>Событие может быть удалено при достижении какого-то времени</li>
+</ul>
+
+
+<p>Параметры которые можно менять</p>
+<ul>
+    <li>Название установленной куки и ее значение</li>
+    <li>Время жизни куки</li>
+    <li>Ссылка на сравниваемую страницу</li>
+</ul>
+
+<p>Порядок выполнения</p>
+<ol>
+    <li>Получаем текущую дату для будущего определения времени жищни куки</li>
+    <li>Добавляем слушатель на объект window</li>
+    <li>При желании добавляем функцию, убирающую обработчик через N секунд </li>
+    <li>getcookie - (сторонняя функция) проверяет наличие куки в браузере</li>
+    <li>setCookie - (сторонняя функция) позволяет записать куки</li>
+</ol>
+
+<p>Используемые функции</p>
+<ul>
+    <li>urlCheker - проверяет текущую страницу, внутри - проверяет установленные куки</li>
+    <li>windowPopUp - делает что-то при наведении курсора на верхнюю часть экранаю.<br>
+        e.relatedTarget === null - значает, что курсор не находится над каким-либо объектом.
+    </li>
+    <li>cookTimer - проверяет наличие куки в режиме реального времени</li>
+    <li>getcookie - (сторонняя функция) проверяет наличие куки в браузере</li>
+    <li>setCookie - (сторонняя функция) позволяет записать куки</li>
+</ul>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+<script src="../dist/bcte.js"></script>
 
 </body>
 </html>
