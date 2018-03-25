@@ -1,5 +1,12 @@
 /**
  * Created by Danil on 24.03.2018.
+ *
+ *
+ * TODO: вынести сет куки гет куки
+ * TODO: написать проверку на stayInTime, и если она число от 1 до ..., то не запускать функцию
+ * TODO: УДАЛИТЬ лишние комментарии
+ *
+ *
  */
 
 // Restrict globals by IIFE
@@ -10,7 +17,8 @@
     var cookieNameValBefore = 'unvisited'; // Set first value of your cookie
     var cookieNameValAfter = 'visited'; //  Set second value of your cookie
     var liveTime = 2; // numeric - days
-    var stayInTime = 30; // numeric - seconds
+    var stayInTime = 4; // numeric - seconds
+    // TODO: Создать переменную, которая будет тру или фалс, и если фалс то не создаём функцию проверки по таймеру
     var targetURL = '/bcte/demo/test2.html'; // url to your targeted page
 
     // x * 1000 - a second
@@ -72,7 +80,7 @@
 
     /**
      * Check existing of the cookie in client PC
-     *
+     * TODO: переписать функцию на switch, установить сравниение (getcookie(cookName) === null), в остальных случаях - return
      */
     function cookieCheck(cookName = cookieName) {
         console.log('TIK');
@@ -94,7 +102,7 @@
 
     /**
      * Check cookie every 2 seconds
-     *
+     * TODO: поместить рядом с кукиЧек
      */
     var cookTimer = setInterval(cookieCheck, 2000);
 
@@ -102,23 +110,28 @@
 
     /**
      * Add listener
-     *
+     * TODO: вынести наверх или рядом с виндоуПопАп
      */
     document.body.addEventListener('mouseout', windowPopUp);
-    setTimeout(removePopUp, (stayInTime * 1000));
 
-    function removePopUp() {
+    /**
+     * Add listener
+     * TODO: Вложить функцию ремувПопАп внуть СетСаймАу
+     */
+    setTimeout(function removePopUp() {
         console.log("Обработчик убран");
         document.body.removeEventListener('mouseout', windowPopUp);
-    }
+    }, (stayInTime * 1000));
+
+
 
 
     /**
-     * Check our cookie on the match
+     * Main function of the project.
+     * Check our cookie on the match and position of mouse.
      *
      */
     function windowPopUp(e) {
-        //console.log("Обработчик добавлен");
         console.log(document.cookie);
         // //alert( document.cookie );
         // if (e.relatedTarget === null && e.pageY < 0 && getcookie(cookieName) === null) {
@@ -146,7 +159,7 @@
 
     /**
      * Check url of the current page. You can do something after the check.
-     *
+     * TODO: переписать на IIFE
      */
     function urlCheker() {
         if ( window.location.pathname == targetURL) {

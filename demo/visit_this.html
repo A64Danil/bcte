@@ -9,22 +9,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div>
+        <h1>You need to visit this page to set a cookie</h1>
+        <p>Here you can set some cookie and do some actions</p>
+        <div class="menu_wrap">
+            <script>
+                var link = document.querySelector('link[rel=import]');
+                var content = link.import.querySelector('.main_menu');
+                document.body.querySelector('.menu_wrap').appendChild(content.cloneNode(true));
+            </script>
+        </div>
 
-<h1>You need to visit this page to set a cookie</h1>
-<p>Here you can set some cookie and do some actions</p>
 
-<script>
-    var link = document.querySelector('link[rel=import]');
-    var content = link.import.querySelector('.main_menu');
-    document.body.appendChild(content.cloneNode(true));
-</script>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button>
-
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+    </div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
