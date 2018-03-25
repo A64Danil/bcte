@@ -1,7 +1,7 @@
 /**
  * Created by Danil on 24.03.2018.
  * On Close Tab Event
- * Version 0.9.0
+ * Version 0.9.1
  */
 
 
@@ -14,6 +14,7 @@
     var liveTime = 0.1; // numeric - days
     var stayInTime = 10; // numeric - seconds OR boolean - false
     var targetURL = '/bcte/demo/visit_this.html'; // url to your targeted page
+    var cookiePath = '/'; // cookie path
 
     // x * 1000 - a second
     // x * 60 * 1000 - a minute
@@ -57,13 +58,13 @@
             }
             else {
                 alert('Вы пришли на нужную страницу, скоро мы установим вам куки на 15 секунд');
-                setCookie(cookieName, cookieNameValAfter, (new Date).getTime() + (new Date).getTimezoneOffset() * 60 * 1000 + (liveTime * 24 * 60 * 60 * 1000));
+                setCookie(cookieName, cookieNameValAfter, (new Date).getTime() + (new Date).getTimezoneOffset() * 60 * 1000 + (liveTime * 24 * 60 * 60 * 1000), cookiePath);
             }
         }
 
         if (getcookie(cookieName) === null) {
             console.log("У вас нет куки, сейчас мы вам пропишем");
-            setCookie(cookieName, cookieNameValBefore, (new Date).getTime() + (new Date).getTimezoneOffset() * 60 * 1000 + (liveTime * 24 * 60 * 60 * 1000));
+            setCookie(cookieName, cookieNameValBefore, (new Date).getTime() + (new Date).getTimezoneOffset() * 60 * 1000 + (liveTime * 24 * 60 * 60 * 1000), cookiePath);
         }
     })();
 
